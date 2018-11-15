@@ -15,6 +15,26 @@ def MiScale(mac_addr, callback, send_only_stabilized_weight):
 
 
         def handleData(self, scale):
+            # MiScale Raw Data Schema
+            # +------+------------------------+
+            # | byte |        function        |
+            # +------+------------------------+
+            # | 0    | Bit 0: unknown         |
+            # |      | Bit 1: kg              |
+            # |      | Bit 2: lbs             |
+            # |      | Bit 3: unknown         |
+            # |      | Bit 4: jin unit        |
+            # |      | Bit 5: stabilized      |
+            # |      | Bit 6: unknown         |
+            # |      | Bit 7: load removed    |
+            # +------+------------------------+
+            # | 1-2  | weight (little endian) |
+            # +------+------------------------+
+            # | 3-7  | unknown                |
+            # +------+------------------------+
+            # | 8-9  | sequence (big endian)  |
+            # +------+------------------------+
+
             # Check for duplicate packet
             if scale.rawData == self.last_rawData[scale.address]: return
             
@@ -30,9 +50,9 @@ def MiScale(mac_addr, callback, send_only_stabilized_weight):
             # Unit
             if (scale.rawData[0] & (1<<4)) != 0: # Chinese Catty
                 scale.unit = UNITS.JIN
-            elif (scale.rawData[0] & 0x0F) == 0x03: # Imperial pound
+            elif (bdata[0] & (1<<2)) != 0: # Imperial pound
                 scale.unit = UNITS.LBS
-            elif (scale.rawData[0] & 0x0F) == 0x02: # MKS kg
+            elif (bdata[0] & (1<<1)) != 0: # MKS kg
                 scale.unit = UNITS.KG
                 scale.weight /= 2  # Convert chinese Catty to kg.
             else:
