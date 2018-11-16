@@ -1,5 +1,5 @@
 # Reverse Mi Scale
-Read [Xiaomi Mi Scale](http://www.mi.com/en/scale/) data from a Raspberry Pi in Python 3.
+Read [Xiaomi Mi Scale v1](http://www.mi.com/en/scale/) data from a Raspberry Pi in Python 3.
 
 ## Run 
 1. Install dependencies
