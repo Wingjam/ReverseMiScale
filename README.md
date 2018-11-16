@@ -59,7 +59,7 @@ sudo hcitool lescan
 ## Source of inspiration
 * [Node Xiaomi Scale](https://github.com/perillamint/node-xiaomi-scale) (mostly)
 * [Xiaomi Scale Scan](https://github.com/chaeplin/Xiaomi_scale_scan)
-* [Xiaomi Bluetooth Mi Scale](https://github.com/oliexdev/openScale/wiki/Xiaomi-Bluetooth-Mi-Scale)
+* [Xiaomi Mi Scale Reverse Engineering](https://github.com/oliexdev/openScale/wiki/Xiaomi-Bluetooth-Mi-Scale)
 * [MiBand2](https://github.com/creotiv/MiBand2)
 
 Thanks for providing those awesome open source projects.
