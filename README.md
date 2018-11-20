@@ -18,6 +18,10 @@ sudo python example.py
 sudo hcitool lescan
 ```
 
+## Run tests
+```
+pytest
+```
 
 ## Output samples
 ```json
