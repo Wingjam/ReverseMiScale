@@ -54,6 +54,17 @@ sudo hcitool lescan
     "unit": "kg",
     "weight": 109.3
 }
+{
+    "UUID": "181d",
+    "address": "c8:0f:10:bf:cc:66",
+    "isStabilized": false,
+    "loadRemoved": false,
+    "manufacturerData": "5701c80f10bfcc66",
+    "rawData": "02e402b2080101010422",
+    "sequence": 1058,
+    "unit": "kg",
+    "weight": 3.7
+}
 ```
 
 ## Source of inspiration
