@@ -80,7 +80,7 @@ class ScanDelegate(DefaultDelegate):
 
     def handleDiscovery(self, dev, isNewDev, isNewData):
         if self.mac_addr:
-            if dev.addr == self.mac_addr:
+            if dev.addr.upper() == self.mac_addr:
                 self.handleData(self.getScaleInfo(dev))
         else:
             for (adtype, desc, value) in dev.getScanData():
@@ -88,6 +88,7 @@ class ScanDelegate(DefaultDelegate):
                         self.handleData(self.getScaleInfo(dev))
 
 def MiScale(mac_addr, callback, send_only_stabilized_weight):
+    mac_addr = mac_addr.upper()
     scanner = Scanner().withDelegate(ScanDelegate(mac_addr, callback, send_only_stabilized_weight))
     while True:
         scanner.start()
